@@ -1,0 +1,171 @@
+/* ------------------------- solitaire -------------------------*/
+
+.solitaire-box {
+  width: 1400px;
+  height: 900px;
+  background-color: #2ecc71; /* Green color */
+  border: 1px solid #27ae60; /* Darker green border */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}
+
+.empty-deck-emoji {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em; /* Adjust size as needed */
+  margin-bottom: 20px; /* Optional: Add margin for spacing */
+  height: 100%; /* Ensure the emoji container fills its parent */
+}
+
+/* TwoBoxes.css */
+.card-shaped {
+  width: 150px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  border: 2px dashed #999; /* Dashed border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.stockpile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Adjust gap between boxes as needed */
+}
+  
+  .sp {
+    width: 50%;
+    height: 200px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+  }
+  
+  .box1 {
+    background-color: lightblue;
+  }
+  
+  .box2 {
+    background-color: lightgreen;
+  }
+
+  .card-stack-container {
+    display: flex;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+  }
+
+  .card-stack {
+    position: relative;
+    width: 150px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+  }
+
+  .card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+   border: 1px solid black;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-index {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #fff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .card-shaped {
+    width: 100px; /* Adjust card width as needed */
+    height: 150px; /* Adjust card height as needed */
+    border: 2px dashed #ccc; /* Dashed border */
+    border-radius: 8px; /* Rounded corners */
+    display: inline-block;
+    margin: 10px; /* Adjust margin as needed */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .playing-card {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-shaped-box {
+    width: 150px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    margin-left: 20px; /* Adjust margin as needed */
+    border: 2px dashed #999; /* Dashed border */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .card-shaped-box.show {
+    display: block;
+  }
+  
+  /* Adjust these styles for the card stacking effect */
+  .card:nth-child(1) {
+    transform: translate(0, 0);
+  }
+  
+  .card:nth-child(2) {
+    transform: translate(5px, -5px);
+  }
+  
+  .card:nth-child(3) {
+    transform: translate(10px, -10px);
+  }
+  
+  /* Add more nth-child rules as needed for more cards */
+
+
+
+
+
+
+ 

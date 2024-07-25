@@ -1,0 +1,838 @@
+/* Import Google fonts - Josefin+Sans, Outfit, Source Code Pro, Rubik, Poppins, Vazmatin, Jersey 10, Space Grotesk */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vazmatin&display-swap");
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&family=Rowdies:wght@300;400;700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+@import url('https://fonts.googleapis.com/css?family=Poppins:900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Denk+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Permanent+Marker&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+:root {
+  --blue: #2684ff;
+  --lblue: #4f9bff;
+  --light-blue: #87f7f1;
+  --volt: #c8ff00;
+  --dark-blue: #000102;
+  --yellow: #e5dc15;
+  --dark-yellow: #c2bb11;
+  --bootstrap-dark: #212529;
+  --bootstrap-lighter: #364459;
+  --bootstrap-lightest: #96a4b3;
+  --cyan: #01fff7;
+  --light-red: #f02652;
+  --gold: #ffc107;
+  --creepy-green: #9cffd9;
+  --creepy-green2: #cefff4;
+  --midnight: rgb(8, 29, 88);
+  --fluro: #DEFF00;
+  --felt-green: #2ecc71;
+  --silver: #C0C0C0;
+  --platinum: #E5E4E2 --bronze: #CD7F32;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+/* ------- main header title --------*/
+
+.header {
+  padding: 20px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: var(--gold) ridge 8px;
+}
+
+.header-gold {
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.centered-text {
+  padding: 20px;
+  text-align: center;
+}
+
+ol,
+ul {
+  color: white;
+}
+
+li {
+  color: white;
+}
+
+.final-container {
+  border: solid 2px var(--lblue);
+  padding: 30px;
+  margin-top: -400px;
+  border-radius: 10px;
+}
+
+p.timer {
+  font-size: 1.3rem;
+  color: white;
+  font-family: 'Rahjdhani', sans-serif;
+  flex: none;
+}
+
+/*----------------------- START SCREEN ----------------------------*/
+
+.start-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  width: 1380px;
+}
+
+.start-screen {
+  border-radius: 10px;
+  border: 3px solid #fff;
+  background-color: var(--bootstrap-dark);
+  justify-content: center;
+  align-items: center;
+  height: 235px;  
+  width: 175px; 
+  padding: 10px;
+}
+
+.p-btn {
+  color: rgb(252, 74, 89);
+  font-size: 1.2rem;
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: none;
+  width: 100%;
+}
+
+.p-btn:hover {
+  background-color: var(--lblue);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  border: 2px white solid;
+}
+
+h1.start-h1 {
+  color: white;
+  font-size: 2.6rem !important;
+  margin-bottom: 20px;
+}
+
+.button-wrapper {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 10px; 
+  }
+
+.game-button {
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;  
+}
+
+.exit-game {
+  background-color: transparent; 
+  color: white;
+  border: 2px solid #fdfcfc;
+}
+
+.exit-game:hover {
+  background-color: var(--light-red);
+  border: 2px solid white;
+  color:  white;
+}
+
+.restart-game {
+  background-color: transparent; 
+  color: white;
+  border: 2px solid #fdfcfc;
+}
+
+.restart-game:hover {
+  background-color: var(--lblue);
+  border: 2px solid white;
+  color:  white;
+}
+
+.club-logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  font-size: 4rem;
+}
+
+/* -------------------- HIGHSCORES --------------------*/
+
+.highscores-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.highscores-container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 40px !important;
+  justify-content: center;
+  display: grid;
+  font-family: "Rajdhani", cursive;
+  color:  white;
+  text-shadow: 5px 8px 5px rgba(0, 0, 0, 0.5);
+  background-color: var(--bootstrap-dark);
+  border: 2px white solid;
+  border-radius: 5px;
+  /* margin-bottom: 0!important; */
+}
+
+.p-btn-2 {
+  color: white;
+  font-size: 1.2rem;
+  padding: 18px 35px;
+  border-radius: 5px;
+  background-color: var(--bootstrap-dark);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 2px white solid;
+}
+
+.p-btn-2:hover {
+  background-color: var(--lblue);
+  border: 2px solid white;
+  color:  white;
+}
+
+.button-container-2 {
+  padding: 20px;
+}
+
+table {
+  min-width: 600px;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: var(--bootstrap-dark);
+  padding: 12px;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+  color: black;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #e1e1e1;
+  color: black;
+}
+ 
+/* -----------------------*/
+
+/* Additional styling */
+
+.px-5 {
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+  padding-top: 40px;
+}
+
+p.lead.my-3 {
+  color: white;
+}
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* -----------------------*/
+
+html,
+body {
+  position: relative;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  font-family: "Poppins", sans-serif;
+  place-items: center;
+  background-color: #222;
+}
+
+#root {
+  border: var(--dark-blue) ridge 12px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: black;
+}
+
+a.back-link {
+  text-decoration: none;
+  color: white;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+/* signup ---------------------------------------------------------*/
+
+.signup-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: var(--bootstrap-dark);
+  border: 3px solid black;
+}
+
+.signup-form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: rgb(252, 74, 89);
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.submit-button-z:hover {
+  background-color: #000000;
+  border: 2px solid var(--lblue);
+  color: var(--lblue);
+}
+
+.submit-button-z {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: var(--lblue);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container-z {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #007bff;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.form-group-z {
+  margin-bottom: 20px;
+}
+
+.label-z {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-z {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 3px var(--lblue) ridge;
+  border-radius: 5px;
+}
+
+.input-z:focus {
+  border: 2px var(--gold) solid;
+}
+
+.error-text {
+  color: rgb(252, 74, 89);
+}
+
+h2.login-title {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: var(--lblue);
+}
+
+div.my-1-9 {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: black;
+  border: 1px solid white;
+}
+
+/* ---------------- profile -----------------*/
+
+.jumbo-bg-dark {
+  background-color: var(--bootstrap-dark) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+h1.jumbo-bg-dark-text {
+  margin: 32px 0;
+  color: var(--lblue);
+  font-size: 35px;
+  font-family: 'Josefin Sans', 'Rubik', 'Arial Narrow Bold', sans-serif
+}
+
+/* ---------------- high scores -----------------*/
+
+.high-scores-table th {
+  color: white;
+}
+
+h1.end {
+  align-items: center;
+  display: flex;
+}
+
+p.yellow {
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.button-container-2 {
+  margin-top: 20px;
+}
+
+th {
+  font-size: 1.2rem;
+}
+
+td {
+  font-size: 1.1rem;
+}
+
+/* bucket app ---------------------------------------------------------*/
+
+.bucket-app {
+  display: flex;
+  flex-direction: row;
+  /* Change to row to align items horizontally */
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 80vh;
+  background: black;
+  text-align: left;
+  margin: 0 auto;
+  background-color: black;
+  border-top: var(--gold) ridge 8px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.header {
+  background: black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+footer {
+  border-top: var(--gold) ridge 8px;
+  margin-top: auto;
+  background: black;
+  padding: 16px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* svg icons on contact page*/
+a:hover {
+  color: var(--lblue) !important;
+}
+
+/* ------ -------------------- ----------- */
+
+aside.sidebar {
+  border-right: var(--gold) ridge 8px;
+}
+
+.nav-tabs-subjects {
+  justify-content: right;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 20px;
+}
+
+.nav-link {
+  background-color: black !important;
+  color: var(--gold) !important;
+  border: 2px solid var(--gold) !important;
+  font-family: 'Source Code Pro';
+}
+
+.nav-link.active {
+  background-color: black !important;
+  color: var(--light-red) !important;
+  border: 2px solid var(--lblue) !important;
+  font-style: italic;
+}
+
+li.nav-item {
+  min-width: 130px;
+}
+
+h1 {
+  font-size: 60px !important;
+  margin: auto 0;
+  justify-content: center;
+  display: grid;
+  font-family: 'UnifrakturCook', cursive;
+  color: white;
+  text-shadow: 5px 8px 5px rgba(0, 0, 0, 0.5);
+}
+
+.diamond {
+  color: var(--light-red);
+}
+
+.clubs {
+  color: var(--lblue);
+}
+
+.hearts {
+  color: var(--light-red);
+}
+
+.spades {
+  color: var(--lblue);
+}
+
+.title-with-suits {
+  display: flex;
+  align-items: center;
+}
+
+.diamond,
+.clubs,
+.hearts,
+.spades {
+  font-size: 50px;
+  margin: 0 5px;
+}
+
+.solitaire-text {
+  font-size: 1em;
+  margin: 0 10px;
+  font-family: 'UnifrakturCook';
+}
+
+.separator-line {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  margin: 20px 0;
+}
+
+/* projects ---------------------------------------------------------*/
+
+p {
+  color: #ffffff;
+}
+
+/* Footer -------------------------------------------------------------- */
+
+.footer-text {
+  display: flex;
+  /* Ensures items are aligned in a row */
+  align-items: center;
+  /* Centers items vertically */
+  gap: 10px;
+  /* Adjust the gap between items */
+}
+
+.footer-text-2 {
+  display: flex;
+  align-items: center;
+  /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  gap: 10px;
+  text-align: center;
+  /* Align text horizontally */
+  margin-right: 20px;
+  /* Adjust margin for spacing */
+}
+
+
+a {
+  color: white;
+  font-family: 'Source Code Pro';
+}
+
+h4 {
+  color: var(--light-red);
+}
+
+h2 {
+  color: var(--creepy-green);
+}
+
+p.mb-0-1 {
+  color: white;
+}
+
+h5 {
+  color: rgb(0, 110, 255);
+}
+
+span.blue-span {
+  color: var(--lblue);
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+span.red-span {
+  color: var(--light-red);
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+/* content ------------------------------------------------*/
+
+.jumbotron {
+  padding: 2rem;
+  margin: 0 auto;
+  border: 1px solid #ffffff;
+  background-color: black !important;
+}
+
+p.code-left {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-indent: 20px;
+}
+
+.bg-light {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delete-icon,
+.edit-icon {
+  margin-right: 5px;
+  color: #fff;
+}
+
+/* =============================== Label on project img hover*/
+
+form {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-button {
+  display: block;
+  margin: 15px auto;
+}
+
+label {
+  display: block;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.2em;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: white;
+  font-family: 'Source Code Pro';
+}
+
+/* ================  Dropdown menu for subjects ========================== */
+
+ol.nav.nav-tabs {
+  list-style: decimal-leading-zero;
+}
+
+/* ========================= media queries ======================== */
+
+/* media query for contact flex-box icons*/
+@media screen and (max-width: 600px) {
+
+  h1.jumbo-bg-dark-text {
+    font-size: 20px;
+  }
+
+  h2.profile-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small screens (mobile devices) */
+@media screen and (max-width: 768px) {
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .nav-links li {
+    margin: 0 10px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  h1 {
+    margin: 16px 0;
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p.separator {
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  a.a-title {
+    margin: 10px;
+  }
+
+  .icons {
+    font-size: 20px;
+  }
+
+  .label {
+    padding: 5px;
+  }
+
+  .label p {
+    font-size: 14px;
+  }
+
+  form {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .form-container button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .confirmation-message {
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+
+  main.mx-3 {
+    margin: 0 10px;
+  }
+
+  form {
+    width: 80%;
+  }
+
+  .form-container button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  div.blue-separator {
+    padding: 25px 50px;
+  }
+}
