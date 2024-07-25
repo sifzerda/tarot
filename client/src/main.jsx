@@ -13,7 +13,7 @@ import Profile from './pages/Profile.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 
-import SolitaireCopy from './components/Copy.jsx';
+import Tarot from './components/Tarot.jsx';
 
 // Define the accessible routes, and which components respond to which URL
 const router = createBrowserRouter([
@@ -43,8 +43,8 @@ const router = createBrowserRouter([
       },
 
       {
-        path: '/Copy',
-        element: <SolitaireCopy />
+        path: '/Tarot',
+        element: <Tarot />
       },
 
     ],

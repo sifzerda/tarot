@@ -43,6 +43,15 @@ function Navigation() {
               Login
             </Link>
           </li>
+
+
+          <li className="nav-item">
+            <Link to="/tarot" className={currentPage === '/tarot' ? 'nav-link active' : 'nav-link'}>
+              Tarot
+            </Link>
+          </li>
+
+
         </React.Fragment>
       );
     }

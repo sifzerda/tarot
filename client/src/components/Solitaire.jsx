@@ -85,12 +85,14 @@ const initialDecks = [
   { id: 'Diamonds', cards: [] },
   { id: 'Clubs', cards: [] },
   { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
 ];
 
  
 
 // Initial tableau cards with stacks (adjust as needed)
-const initialTableau = Array.from({ length: 7 }, (_, index) => ({
+const initialTableau = Array.from({ length: 0 }, (_, index) => ({
   id: `tableau-${index + 1}`,
   cards: [],
   faceUp: [], // Array to track faceup cards
@@ -177,14 +179,6 @@ const handleRestartGame = () => {
 
     if (!targetFoundation) return;
 
-    const isMoveValid = isMoveAllowed(draggedCard, targetFoundation);
-
-    if (!isMoveValid) {
-      // Move is invalid, return to beginning of stockpile array
-      //setCards((prevCards) => [draggedCard, ...prevCards]); 
-      return; // go to next card in array
-    }
-
     if (source.droppableId === 'revealed-cards') {
       const updatedCards = cards.filter((card) => card.id !== draggedCard.id);
       setCards(updatedCards);
@@ -202,103 +196,6 @@ const handleRestartGame = () => {
     }));
 
     setDecks(updatedDecks);
-  };
-
-  // Function to validate if card can be moved to foundation
-  const isMoveAllowed = (card, foundationDeck) => {
-    if (foundationDeck.cards.length === 0) {
-      // Only Ace can be placed on an empty foundation
-      return card.rank === 'Ace' && card.suit === foundationDeck.id;
-    } else {
-      const lastCard = foundationDeck.cards[foundationDeck.cards.length - 1];
-      // Allow rank 2 of the same suit to be placed on Ace
-      if (lastCard.rank === 'Ace' && card.rank === '2' && card.suit === foundationDeck.id) {
-        return true;
-      }
-      // Check if ranks are in ascending order and same suit
-      if (card.suit === foundationDeck.id && getNextRank(lastCard.rank) === card.rank) {
-        return true;
-      }
-
-      // Allow cards to drop in sequence using parseInt
-      const lastRankInt = parseInt(lastCard.rank, 10); // Parse the rank of the last card as an integer
-      const currentRankInt = parseInt(card.rank, 10); // Parse the rank of the current card as an integer
-
-      if (!isNaN(lastRankInt) && !isNaN(currentRankInt) && currentRankInt === lastRankInt + 1 && card.suit === foundationDeck.id) {
-        return true;
-      }
-
-      return false;
-    }
-  };
-
-  // Function to get the next rank in sequence
-  const getNextRank = (rank) => {
-    const ranks = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
-    const currentIndex = ranks.indexOf(rank);
-    return ranks[currentIndex + 1];
-  };
-
-  //-----------------------------------(S1) drag STOCKPILE TO TABLEAU RULES -------------------------------------------------
-
-  const handleStockpileToTableauDrop = (draggedCard, destination) => {
-    const updatedCards = cards.filter((card) => card.id !== draggedCard.id);
-    setCards(updatedCards);
-
-    console.log(`Dragging card ${draggedCard.rank} of ${draggedCard.suit} to destination: ${destination.droppableId}`);
-
-    if (destination.droppableId.startsWith('tableau')) {
-      const targetPileId = destination.droppableId;
-      const targetPile = tableau.find((pile) => pile.id === targetPileId);
-
-      if (!targetPile) {
-        console.error(`Error: Tableau pile ${targetPileId} not found.`);
-        return;
-      }
-
-      const topCard = targetPile.cards.length > 0 ? targetPile.cards[targetPile.cards.length - 1] : null;
-
-      // Check if dragged card rank is valid
-      const isValidRank = () => {
-        const ranks = ['King', 'Queen', 'Jack', '10', '9', '8', '7', '6', '5', '4', '3', '2', 'Ace'];
-        const draggedCardIndex = ranks.indexOf(draggedCard.rank);
-        if (topCard === null) {
-          // If the pile is empty, only a King can be dropped
-          return draggedCard.rank === 'King';
-        } else {
-          const topCardIndex = ranks.indexOf(topCard.rank);
-          return draggedCardIndex === topCardIndex + 1;
-        }
-      };
-
-      // Check if dragged card color is valid (opposite color)
-      const isValidColor = () => {
-        if (!topCard) return true; // If no top card, any color is valid
-        return (topCard.color === 'Red' && draggedCard.color === 'Black') || (topCard.color === 'Black' && draggedCard.color === 'Red');
-      };
-
-      if (isValidRank() && isValidColor()) {
-        // Add the card to the tableau pile and mark it as faceup
-        const updatedTableau = tableau.map((pile) => {
-          if (pile.id === targetPileId) {
-            // Mark the added card faceup and retain other cards' face-up state
-            const updatedFaceUp = [...pile.faceUp, true];
-            console.log(`Card ${draggedCard.rank} of ${draggedCard.suit} added to tableau ${targetPileId}. New faceup state: ${updatedFaceUp}`);
-            return {
-              ...pile,
-              cards: [...pile.cards, draggedCard],
-              faceUp: updatedFaceUp,
-            };
-          }
-          return pile;
-        });
-        setTableau(updatedTableau);
-      } else {
-        console.log('Invalid move: Cannot drop this card on top of the current tableau pile.');
-      }
-    } else {
-      console.log('Invalid destination: Destination must be a tableau pile.');
-    }
   };
 
   //----------------------------------- (T1) drag TABLEAU TO TABLEAU RULES -------------------------------------------------
@@ -407,8 +304,6 @@ const handleRestartGame = () => {
       const updatedCards = cards.filter((card) => card.id !== draggedCard.id);
       setCards(updatedCards);
 
-      handleStockpileToTableauDrop(draggedCard, destination);
-
       // (T1.1) DROPPING FROM TABLEAU INTO TABLEAU -----------------------------------------
 
     } else if (source.droppableId.startsWith('tableau') && destination.droppableId.startsWith('tableau')) {
@@ -441,7 +336,6 @@ const handleRestartGame = () => {
 {/* Foundation decks section ---------------------------------------------------------------------*/}
 
         <div className="decks">
-
         <div className="cards">
 {/* --------------- --------------------- -----------------------*/}
 
@@ -528,77 +422,6 @@ const handleRestartGame = () => {
           </div>
         </div>
 
-{/* Tableau decks section ---------------------------------------------------------------------*/}
-
-        <div className="tableau">
-          <div className="tableau-cards">
-            {tableau.map((pile) => (
-              <div key={pile.id} className="tableau-pile">
-                <Droppable droppableId={pile.id}>
-                  {(provided, snapshot) => (
-                    <div
-                      className={`tableau-inner ${snapshot.isDraggingOver ? 'dragging-over' : ''}`}
-                      {...provided.droppableProps}
-                      ref={provided.innerRef}
-                    >
-                      {pile.cards.map((card, index) => (
-                        <Draggable
-                          key={card.id}
-                          draggableId={card.id}
-                          index={index}
-                          isDragDisabled={!pile.faceUp[index]} // Disable dragging for face-down cards
-                        >
-                          {(dragProvided, dragSnapshot) => (
-                            <div
-                              className={`tableau-card ${dragSnapshot.isDragging ? 'group-dragging' : ''}`}
-                              ref={dragProvided.innerRef}
-                              {...dragProvided.draggableProps}
-                              {...dragProvided.dragHandleProps}
-                            >
-                              {/* Render individual card when not dragging, group when dragging */}
-                              {dragSnapshot.isDragging && pile.faceUp[index] ? (
-                                // Render group of face-up cards being dragged
-                                <div className='t-drag-card'>
-                                  {pile.cards.slice(index).map((c, index) => (
-                                    <div className='t-drag-card-group' key={c.id}>
-                                      <img src={c.image} alt={`${c.rank} of ${c.suit}`} />
-                                      {/*  {c.rank} of {c.suit} - ({c.color})  */}
-                                    </div>
-                                  ))}
-                                </div>
-                              ) : (
-                                <div
-                                  className="tableau-card-inner"
-                                  onClick={() => {
-                                    if (!pile.faceUp[index] && index === pile.cards.length - 1) {
-                                      const updatedTableau = [...tableau];
-                                      updatedTableau.forEach((p) => {
-                                        if (p.id === pile.id) {
-                                          p.faceUp[index] = true;
-                                        }
-                                      });
-                                      setTableau(updatedTableau);
-                                    }
-                                  }}
-                                >
-                                  <img
-                                    src={pile.faceUp[index] ? card.image : cardBack}
-                                    alt={pile.faceUp[index] ? `${card.rank} of ${card.suit}` : 'Face-down card'}
-                                  />
-                                </div>
-                              )}
-                            </div>
-                          )}
-                        </Draggable>
-                      ))}
-                      {provided.placeholder}
-                    </div>
-                  )}
-                </Droppable>
-              </div>
-            ))}
-          </div>
-        </div>
         
     </DragDropContext>
  
