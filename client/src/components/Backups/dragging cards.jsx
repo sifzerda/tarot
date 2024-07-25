@@ -138,6 +138,7 @@ const Solitaire = () => {
             )}
           </Droppable>
         </div>
+
         <div className="decks">
           <h2>Foundation Decks</h2>
           <div className="foundation-decks">
@@ -163,6 +164,7 @@ const Solitaire = () => {
             ))}
           </div>
         </div>
+        
       </div>
     </DragDropContext>
   );
