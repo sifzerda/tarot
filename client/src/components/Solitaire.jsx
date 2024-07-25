@@ -87,9 +87,22 @@ const initialDecks = [
   { id: 'Hearts', cards: [] },
   { id: 'Hearts', cards: [] },
   { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
+  { id: 'Hearts', cards: [] },
 ];
-
- 
 
 // Initial tableau cards with stacks (adjust as needed)
 const initialTableau = Array.from({ length: 0 }, (_, index) => ({

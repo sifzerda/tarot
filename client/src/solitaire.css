@@ -183,44 +183,6 @@ span.red {
   display: flex;
 }
 
-.empty-deck-emoji {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 4em;
-  /* Adjust size as needed */
-  margin-bottom: 20px;
-  /* Optional: Add margin for spacing */
-  height: 100%;
-  /* Ensure the emoji container fills its parent */
-}
-
-.emoji-red {
-  color: var(--light-red);
-}
-
-.emoji-blue {
-  color: var(--lblue);
-}
-
-/* TwoBoxes.css */
-.card-shaped {
-  width: 150px;
-  /* Adjust width as needed */
-  height: 200px;
-  /* Adjust height as needed */
-  border: 2px dashed #999;
-  /* Dashed border */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  font-weight: bold;
-}
-
 .stockpile-container {
   display: flex;
   justify-content: center;
@@ -233,14 +195,6 @@ span.red {
   height: 200px;
   border: 1px solid #000;
   box-sizing: border-box;
-}
-
-.box1 {
-  background-color: lightblue;
-}
-
-.box2 {
-  background-color: lightgreen;
 }
 
 .card-stack-container {
@@ -362,19 +316,6 @@ span.red {
   display: block;
 }
 
-/* Adjust these styles for the card stacking effect */
-.card:nth-child(1) {
-  transform: translate(0, 0);
-}
-
-.card:nth-child(2) {
-  transform: translate(5px, -5px);
-}
-
-.card:nth-child(3) {
-  transform: translate(10px, -10px);
-}
-
 /* Add more nth-child rules as needed for more cards */
 .deck-content.dragging-over {
   border: 2px solid #0a0a0a;
@@ -410,30 +351,9 @@ span.red {
  
 }
 
-.next-card-btn {
-  width: 120px;
-  height: 210px;
-  font-size: 16px;
-  background-color: transparent;
-  color: transparent;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  position: absolute;
-  bottom: 3px;  
-  right: 3px;  
-  z-index: 10;  
-  position: absolute;
-}
 
-.next-card-btn:hover {
-  background-color: transparent;
-}
 
-.next-card-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
+
 
 .facedown-stockpile {
   height: 200px;
@@ -461,31 +381,8 @@ span.red {
   max-height: 100%;
 }
 
-/* How much sub level layer of cards shows */
-.facedown-card+.facedown-card {
-  margin-top: -183px;
-  /* Amount of overlap between cards */
-}
 
-.last-card-content {
-  border: 3px dashed #606666;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box; /* Ensure padding and border are included in width and height */
-  padding: 10px; /* Adjust padding as needed */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  display: flex;
-  font-size: 60px;
-}
 
-.last-card-container {
-  border-radius: 5px;
-  width: 120px;
-  height: 180px;
-  color: white;
-  transform: translateX(-250%) translateY(-06%);
-}
 
 img.refresh {
   margin-top: 30px;
@@ -541,15 +438,7 @@ img.refresh {
 }
 
 /* How much sub level layer of cards shows */
-.card-in-deck+.card-in-deck {
-  margin-top: -174px;
-  /* Amount of overlap between cards */
-}
 
-/* Adjust card styles as needed */
-.card-in-deck:last-child {
-  margin-bottom: 0;
-}
 
 .card-in-deck img {
   max-width: 100%;
@@ -565,166 +454,11 @@ img.refresh {
   object-fit: cover;
 }
 
-/* TABLEAU ------------------------------------------------*/
-
-.tableau {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 70px;
-}
-
-.tableau-cards {
-  display: flex;
-  gap: 27px;
-}
-
-.tableau-card img {
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.tableau-pile {
-  padding: 10px;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.tableau-inner {
-  min-height: 100px;
-  padding: 5px;
-  border-radius: 3px;
-}
-
-.tableau-card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 5px;
-  background-color: white;
-  border: 1px solid #9e9696;
-  border-radius: 5px;
-  width: 120px;
-  height: 180px;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: black;
-}
-
-/* How much sub level layer of cards shows */
-.tableau-card+.tableau-card {
-  margin-top: -150px;
-  /* Amount of overlap between cards */
-}
-
-/* Optional: Highlight when dragging */
-.tableau-card.dragging {
-  opacity: 0.5;
-}
-
-/* Optional: Hover effect */
-.tableau-card:hover {
-  cursor: grab;
-  /* Change cursor on hover */
-  transform: translateY(-5px);
-  /* Lift card slightly on hover */
-  border: 5px dashed var(--lblue);
-}
-
-/* Droppable area highlight */
-.tableau-inner.dragging-over {
-  background-color: lightgreen;
-}
-
-.tableau-inner.dragging-over .tableau-card {
-  transform: translateY(calc(-10px - 1px));
-}
-
-.tableau-card.dragging {
-  opacity: 0.7;
-  /* Reduce opacity when dragging */
-  background-color: #f0f0f0;
-}
-
-/* Dragging tableau piles/columns */
-
-.tableau-card.group-dragging {
-  transform: scale(1.2);
-  /* Increase size of dragged group */
-  z-index: 100;
-  /* Ensure dragged cards appear above others */
-}
-
-.t-drag-card-group {
-  border-left: 5px dashed #007bff;
-  border-right: 5px dashed #007bff;
-  border-bottom: 5px dashed #007bff;
-  border-top: 5px dashed #007bff;
-  background-color: rgb(255, 255, 255);
-  padding: 5px;
-  margin: -11px;
-  height: 180px;
-  margin-bottom: -145px;
-}
-
-.t-drag-card-group img {
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-}
-
-/* hover of facedown cards*/
-.tableau-card.facedown:hover {
-  border: none;
-  transition: none;
-  transform: none;
-}
-
-@media (max-width: 768px) {
-  .solitaire-container {
-    flex-direction: column;
-    /* Stack cards vertically on smaller screens */
-  }
-}
-
 
 
 
 
 /* TAROT */
-
-/* CelticCrossLayout.css */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.cards {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.card {
-  padding: 10px;
-  margin: 0 5px;
-  background-color: #ccc;
-  border: 1px solid #000;
-  border-radius: 5px;
-  text-align: center;
-  cursor: grab;
-}
-
-.celtic-cross {
-  display: grid;
-  grid-template-areas:
-    ". . drop-zone-0 . ."
-    ". drop-zone-1 . drop-zone-2 ."
-    "drop-zone-3 drop-zone-4 drop-zone-5 drop-zone-6 drop-zone-7"
-    ". drop-zone-8 . drop-zone-9 ."
-    ". . drop-zone-10 . .";
-  gap: 10px;
-}
 
 .drop-zone {
   width: 80px;
@@ -738,4 +472,9 @@ img.refresh {
 .placeholder {
   color: #888;
   font-size: 12px;
+}
+
+.card-row {
+  display: flex;
+  margin-bottom: 10px;
 }
