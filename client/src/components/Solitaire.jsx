@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+
 import StartScreen from './StartScreen';
-import Highscores from './Highscores';
-import FinalScore from './FinalScore';
+
 // facedown card image
 import cardBack from '../../public/images/0zcardback.jpg';
 // 
@@ -77,9 +77,6 @@ const initialCards = [
   { id: 'card-44', suit: 'Spades', rank: '5', color: 'Black', image: spade5 },
   { id: 'card-45', suit: 'Spades', rank: '6', color: 'Black', image: spade6 },
   { id: 'card-46', suit: 'Spades', rank: '7', color: 'Black', image: spade7 },
-
-
-
 ];
 
 // create and initialize Foundation decks with suit id, and empty 
@@ -90,13 +87,7 @@ const initialDecks = [
   { id: 'Hearts', cards: [] },
 ];
 
-// Emoji on empty foundation decks
-const suitEmojis = {
-  Spades: '♤',
-  Diamonds: '♢',
-  Clubs: '♧',
-  Hearts: '♡',
-};
+ 
 
 // Initial tableau cards with stacks (adjust as needed)
 const initialTableau = Array.from({ length: 7 }, (_, index) => ({
@@ -112,38 +103,6 @@ const Solitaire = () => {
   /* for next card display */
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [tableau, setTableau] = useState(initialTableau); // State for tableau cards
-  const [viewHighscores, setViewHighscores] = useState(false);
-  const [timer, setTimer] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-  const [showFinalScore, setShowFinalScore] = useState(false);
-
-
-    // Timer logic -------------------------------------------
-
-    useEffect(() => {
-      if (isActive) {
-        const interval = setInterval(() => {
-          setTimer(timer => timer + 1);
-        }, 1000);
-        return () => clearInterval(interval);
-      }
-    }, [isActive]);
-
-    // Reset timer when game starts or restarts
-    useEffect(() => {
-      if (gameStarted) {
-        setTimer(0);
-        setIsActive(true);
-      } else {
-        setIsActive(false);
-      }
-    }, [gameStarted]);
-
-    useEffect(() => {
-      if (checkGameWon()) {
-        alert('Congratulations! You have won the game!');
-      }
-    }, [decks]); // Listen for changes in the foundation decks
 
     // --------- -------------------------------------------
 
@@ -208,19 +167,7 @@ const handleRestartGame = () => {
   setTableau(tableauCopy);
   setCards(stockpile);
   setDecks(initialDecks);
-  setTimer(0); // Reset the timer
-  setIsActive(true); // Start the timer
 };
-
-  // from Start to Highscores
-  const handleHighscores = () => {
-    setViewHighscores(true);
-  };
-
-  // from Start to FinalScore
-  const handleFinalScore = () => {
-    setShowFinalScore(true);
-  };
 
   //-----------------------------------(F1) drag ANY TO FOUNDATION RULES -------------------------------------------------
 
@@ -472,36 +419,11 @@ const handleRestartGame = () => {
     handleFoundationDrop(source, destination, draggedCard);
   };
 
-/* -------------------------- check if game won -----------------------------------*/
-
-const checkGameWon = () => {
-  const requiredCards = ['King']; // Adjust if needed to include all ranks from 'Ace' to 'King'
-  const foundationsComplete = decks.every((deck) => {
-    const deckCards = deck.cards.map((card) => card.rank);
-    return requiredCards.every((rank) => deckCards.includes(rank));
-  });
-  if (foundationsComplete) {
-    setIsActive(false);
-    alert(`You won! Time taken: ${timer} seconds`);
-    setShowFinalScore(true);
-  }
-};
-
-/* -------------------------- check if game won -----------------------------------*/
-
-if (viewHighscores) {
-  return <Highscores />;
-}
-
-if (showFinalScore) {
-  return <FinalScore time={timer} onHighScores={handleHighscores} />;
-}
-
 /* -------------------------- RETURN/RENDERING -----------------------------------*/
 
   return (
 <div className="s-container">
-{ !gameStarted && <StartScreen onStartGame={handleStartGame} onHighScores={handleHighscores}  onFinalScore={handleFinalScore}  /> }
+{ !gameStarted && <StartScreen onStartGame={handleStartGame}  /> }
 
       {gameStarted && (
  
@@ -509,7 +431,7 @@ if (showFinalScore) {
 
         {/* --------------- game exit and restart btns ----------------*/}
         <div className="button-wrapper">
-  <div className="timer">Time: {timer}</div>
+  <div className="timer">Time: __:__</div>
   <div className="button-container">
     <button className="game-button restart-game" onClick={handleRestartGame}>Restart</button>
     <button className="game-button exit-game" onClick={handleExitGame}>Exit</button>
@@ -588,7 +510,7 @@ if (showFinalScore) {
                           className={`empty-deck-emoji ${deck.id === 'Hearts' || deck.id === 'Diamonds' ? 'emoji-red' : 'emoji-blue'
                             }`}
                         >
-                          {suitEmojis[deck.id]}
+ 
                         </div>
                       ) : (
                         deck.cards.map((card, index) => (
@@ -678,8 +600,6 @@ if (showFinalScore) {
           </div>
         </div>
         
-
- 
     </DragDropContext>
  
   )}
