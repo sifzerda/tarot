@@ -69,6 +69,7 @@ const initialDecks = [
   { id: 'diamonds', cards: [] },
   { id: 'clubs', cards: [] },
   { id: 'spades', cards: [] },
+  { id: 'extra', cards: [] },
 ];
 
 const Drag = () => {

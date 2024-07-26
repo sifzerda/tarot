@@ -531,6 +531,7 @@ img.refresh {
 .foundation-deck:nth-child(3) { grid-area: 2 / 2; }
 .foundation-deck:nth-child(4) { grid-area: 2 / 3; }
 .foundation-deck:nth-child(5) { grid-area: 3 / 2; }
+.foundation-deck:nth-child(6) { grid-area: 4 / 2; }
 
 .deck-content {
   display: flex;
