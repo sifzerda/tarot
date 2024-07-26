@@ -44,14 +44,6 @@ function Navigation() {
             </Link>
           </li>
 
-
-          <li className="nav-item">
-            <Link to="/tarot" className={currentPage === '/tarot' ? 'nav-link active' : 'nav-link'}>
-              Tarot
-            </Link>
-          </li>
-
-
         </React.Fragment>
       );
     }
@@ -74,6 +66,17 @@ function Navigation() {
         </Link>
       </li>
 
+      <li className="nav-item">
+            <Link to="/tarot" className={currentPage === '/tarot' ? 'nav-link active' : 'nav-link'}>
+              Tarot
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/drag" className={currentPage === '/drag' ? 'nav-link active' : 'nav-link'}>
+              Drag
+            </Link>
+          </li>
 
     {/* ---------------------------------- log in conditional function --------------------------------  */}
 

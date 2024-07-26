@@ -14,6 +14,7 @@ import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 
 import Tarot from './components/Tarot.jsx';
+import Drag from './components/Drag.jsx';
 
 // Define the accessible routes, and which components respond to which URL
 const router = createBrowserRouter([
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
       {
         path: '/Tarot',
         element: <Tarot />
+      },
+
+      {
+        path: '/Drag',
+        element: <Drag />
       },
 
     ],
