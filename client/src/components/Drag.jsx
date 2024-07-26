@@ -53,11 +53,11 @@ const initialCards = [
 ];
 
 const initialDecks = [
-  { id: 'hearts', cards: [] },
-  { id: 'diamonds', cards: [] },
-  { id: 'clubs', cards: [] },
-  { id: 'spades', cards: [] },
-  { id: 'extra', cards: [] },
+  { id: 'opportunity', cards: [] },
+  { id: 'past', cards: [] },
+  { id: 'present', cards: [] },
+  { id: 'future', cards: [] },
+  { id: 'obstacle', cards: [] },
 ];
 
 const Drag = () => {
