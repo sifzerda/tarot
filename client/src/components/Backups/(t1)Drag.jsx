@@ -1,3 +1,7 @@
+// copy of basic Tarot arrangement:
+// card stack 
+// celtic cross destination space
+
 import { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
