@@ -1,6 +1,3 @@
-// THIS IS A TEMPLATE FOR DRAGGING CARDS TO FOUNDATIONS BOXES
-// YOU CAN USE IT TO START UP A SIMILAR TYPE OF GAME
-
 import { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -143,7 +140,7 @@ const Drag = () => {
           <h2>Foundation Decks</h2>
           <div className="foundation-decks">
             {decks.map((deck) => (
-              <div key={deck.id} className="foundation-deck">
+              <div key={deck.id} className={`foundation-deck ${deck.id}`}>
                 <Droppable droppableId={deck.id}>
                   {(provided, snapshot) => (
                     <div
@@ -164,7 +161,6 @@ const Drag = () => {
             ))}
           </div>
         </div>
-        
       </div>
     </DragDropContext>
   );

@@ -479,3 +479,72 @@ img.refresh {
   margin-bottom: 10px;
 }
 
+
+/* App CSS */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cards, .decks {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.foundation-decks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.foundation-deck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #ccc;
+  width: 100px;
+  height: 100px;
+}
+
+.foundation-deck:nth-child(1) { grid-area: 1 / 2; }
+.foundation-deck:nth-child(2) { grid-area: 2 / 1; }
+.foundation-deck:nth-child(3) { grid-area: 2 / 2; }
+.foundation-deck:nth-child(4) { grid-area: 2 / 3; }
+.foundation-deck:nth-child(5) { grid-area: 3 / 2; }
+
+.deck-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dragging-over {
+  background-color: lightblue;
+}
+
+.card-in-deck {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin: 4px;
+}
